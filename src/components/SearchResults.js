@@ -2,12 +2,22 @@ import React from "react";
 
 function SearchResults(props) {
   let employees = props.results;
+
+  employees = employees.filter(
+    (employee) =>
+      employee.name.first.toLowerCase().includes(props.search.toLowerCase()) ===
+        true ||
+      employee.name.last.toLowerCase().includes(props.search.toLowerCase()) ===
+        true
+  );
   //map employees for row in the table
 
   let rows = employees.map((employee) => (
     <tr>
       <td>{<img alt="employee" src={employee.picture.thumbnail} />}</td>
-      <td>{employee.name.first + employee.name.last}</td>
+      <td>
+        {employee.name.first} {employee.name.last}
+      </td>
       <td>{employee.phone}</td>
       <td>{employee.email}</td>
       <td>{employee.dob.date}</td>

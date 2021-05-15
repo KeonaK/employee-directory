@@ -18,7 +18,7 @@ This app allows the user to view the entire employee directory at once to have q
 
 ## ScreenShot
 
-![screen shot]()
+![screen shot](./images/screenshot.png)
 
 ## Deployment
 
