@@ -21,7 +21,7 @@ function SearchForm(props) {
           onClick={props.handleFormSubmit}
           className="btn btn-success"
         >
-          Search
+          Reload
         </button>
       </div>
     </form>
