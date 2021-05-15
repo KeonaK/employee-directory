@@ -1,8 +1,12 @@
 import axios from "axios";
-const BASEURL = "https://randomuser.me/api/?results=100";
+//search results filtered for only the needed information
+const BASEURL =
+  "https://randomuser.me/api/?inc=picture,name,phone,email,dob&nat=us&results=100";
 
-const API = function (query) {
-  return axios.get(BASEURL + query);
+// api object to grab the search function
+const API = {
+  find: function () {
+    return axios.get(BASEURL);
+  },
 };
-
 export default API;

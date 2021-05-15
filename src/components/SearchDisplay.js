@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-
 import Container from "./Container";
 import SearchForm from "./SearchForm";
+import SearchResults from "./SearchResults";
 
 class SearchDisplay extends Component {
   state = {
@@ -12,26 +12,26 @@ class SearchDisplay extends Component {
   };
 
   componentDidMount() {
-    // API.getBaseBreedsList()
-    //   .then((res) => this.setState({ breeds: res.data.message }))
-    //   .catch((err) => console.log(err));
+    this.findEmployee("");
   }
 
-  handleInputChange = (event) => {
-    this.setState({ search: event.target.value });
+  findEmployee = () => {
+    API.find()
+      .then((res) => this.setState({ results: res.data.results }))
+      .catch((err) => console.log(err));
   };
 
-  //   handleFormSubmit = (event) => {
-  //     event.preventDefault();
-  //     API.getDogsOfBreed(this.state.search)
-  //       .then((res) => {
-  //         if (res.data.status === "error") {
-  //           throw new Error(res.data.message);
-  //         }
-  //         this.setState({ results: res.data.message, error: "" });
-  //       })
-  //       .catch((err) => this.setState({ error: err.message }));
-  //   };
+  handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
   render() {
     return (
       <div>
@@ -41,7 +41,10 @@ class SearchDisplay extends Component {
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-          {/* <SearchResults results={this.state.results} /> */}
+          <SearchResults
+            results={this.state.results}
+            search={this.state.search}
+          />
         </Container>
       </div>
     );
