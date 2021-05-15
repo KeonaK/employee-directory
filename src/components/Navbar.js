@@ -3,10 +3,9 @@ import React from "react";
 
 function Navbar(props) {
   return (
-    <nav class="navbar navbar-dark bg-primary">
-      <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">{props.title}</span>
-        <p>{props.subhead}</p>
+    <nav className="navbar navbar-dark bg-primary">
+      <div className="container-fluid">
+        <span className="navbar-brand mb-0 h1">{props.title}</span>
       </div>
     </nav>
   );
