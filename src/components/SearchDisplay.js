@@ -31,6 +31,7 @@ class SearchDisplay extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+    this.findEmployee();
   };
   render() {
     return (
